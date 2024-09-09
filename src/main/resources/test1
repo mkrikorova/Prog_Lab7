@@ -1,0 +1,18 @@
+add
+Лада Седан Баклажан
+100000
+12.7
+1234.99
+90
+128293.9999
+plasma
+add
+Лада
+10
+12.7
+1234.99
+10
+128293.9999
+info
+execute_script /Users/m.krikorova/IdeaProjects/Lab6/src/main/resources/test2
+remove_any_by_fuel_type diesel

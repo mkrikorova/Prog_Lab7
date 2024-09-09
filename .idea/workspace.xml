@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="157a1148-51d0-448a-b6fa-262999fbca28" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/AddAndRemoveLowerValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ExecuteScriptValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/IValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/NoArgumentsValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/OneIntArgValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/OneStringArgValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ReadValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/UpdateByIdValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/ExitProgramException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/InvalidNameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/RecursiveCallException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/ToMuchAttemptsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/UnknownCommandException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/WrongArgumentsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/statuses/ExceptionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/statuses/OKResponseStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/statuses/OKStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/statuses/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/utils/ColorOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/FuelType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/Executable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CollectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CommandManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/FileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/RequestManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ServerConsoleInputManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fillCollection.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test2" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2j91B1UltjXKI9x4N35yLkH5vjW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/m.krikorova/IdeaProjects/Lab6/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/files" />
+      <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions" />
+      <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utils" />
+      <recent name="commands" />
+      <recent name="managers" />
+      <recent name="validators" />
+      <recent name="exceptions" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <envs>
+        <env name="PORT" value="8000" />
+        <env name="file_path" value="$PROJECT_DIR$/src/main/resources/fillCollection.xml" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="utils.Main" />
+      <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client2" type="Application" factoryName="Application">
+      <envs>
+        <env name="PORT" value="8000" />
+        <env name="file_path" value="$PROJECT_DIR$/src/main/resources/fillCollection.xml" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="utils.Main" />
+      <module name="Client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application">
+      <envs>
+        <env name="PORT" value="8000" />
+        <env name="file_path" value="$PROJECT_DIR$/src/main/resources/fillCollection.xml" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Client2" />
+      <item itemvalue="Application.Server" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="157a1148-51d0-448a-b6fa-262999fbca28" name="Changes" comment="" />
+      <created>1720784339993</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720784339993</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/Server.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/HelpCommand.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CommandManager.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ExecuteScriptValidator.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ExecuteScriptValidator.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/command/ExecuteScriptCommand.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/command/ExecuteScriptCommand.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ReadValidator.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="exceptions.ExitProgramException" package="exceptions" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="26" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="uniqueId" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
