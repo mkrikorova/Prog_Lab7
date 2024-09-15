@@ -1,0 +1,13 @@
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/command/ExecuteScriptCommand.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/utils/Client.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/utils/Main.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/utils/RequestManager.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/AddAndRemoveLowerValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/ExecuteScriptValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/IValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/NoArgumentsValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/OneIntArgValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/OneStringArgValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/ReadValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/UpdateByIdValidator.java
+/Users/dmitriy/Documents/code/java/Lab6/src/main/java/Client/src/main/java/validators/Validator.java
