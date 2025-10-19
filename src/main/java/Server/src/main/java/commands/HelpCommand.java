@@ -1,6 +1,7 @@
 package commands;
 
 import managers.CommandManager;
+import models.User;
 import statuses.OKResponseStatus;
 import statuses.Status;
 import vehicleClasses.Vehicle;
@@ -17,13 +18,15 @@ public class HelpCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         StringBuilder result = new StringBuilder();
         for (Command c : CommandManager.getCommands()) {
-            result.append(c.getName());
-            result.append(":  ");
-            result.append(c.getDescription());
-            result.append("\n");
+            if (!c.getName().equals("login") && !c.getName().equals("register")) {
+                result.append(c.getName());
+                result.append(":  ");
+                result.append(c.getDescription());
+                result.append("\n");
+            }
         }
         result.append("execute_script script: " + "Считать и исполнить скрипт из указанного файла. " +
                 "В скрипте содержатся команды в таком же виде, \n" +

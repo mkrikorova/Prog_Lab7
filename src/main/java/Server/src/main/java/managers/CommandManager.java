@@ -13,9 +13,11 @@ public class CommandManager {
      */
     private static Map<String, Command> commands;
     private final CollectionManager collectionManager;
+    private final UserManager userManager;
 
    public CommandManager(CollectionManager collectionManager) {
        this.collectionManager = collectionManager;
+       this.userManager = new database.postgres.UserManager();
        commands = new HashMap<>();
        this.setCommands();
    }
@@ -44,11 +46,18 @@ public class CommandManager {
         commands.put("remove_lower", new RemoveLowerCommand(collectionManager));
         commands.put("show", new ShowCommand(collectionManager));
         commands.put("update", new UpdateCommand(collectionManager));
+
+        commands.put("login", new LoginCommand(collectionManager, userManager));
+        commands.put("register", new RegisterUserCommand(collectionManager, userManager));
     }
 
-    public Status execute(String commandName, String args, Vehicle vehicle) throws ExitProgramException {
+    public Status execute(String commandName, String args, Vehicle vehicle, String login, String password) throws ExitProgramException {
         Command command = commands.get(commandName);
-        Status status = command.execute(args, vehicle);
+        var user = userManager.getUser(login, password);
+        if (user == null && command != commands.get("login") && command != commands.get("register")) {
+            return new ExceptionStatus("Вы не авторизованы");
+        }
+        Status status = command.execute(args, vehicle, user);
         return status;
     }
 

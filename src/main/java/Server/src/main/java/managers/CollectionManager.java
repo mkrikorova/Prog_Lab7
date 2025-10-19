@@ -1,5 +1,8 @@
 package managers;
 
+import database.postgres.VehicleManager;
+import exceptions.NoAccessException;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKStatus;
 import statuses.Status;
@@ -12,10 +15,12 @@ import java.util.ArrayDeque;
 public class CollectionManager {
     ArrayDeque<Vehicle> collection;
     LocalDateTime collectionInitialization;
+    VehicleStorageManager vehicleStorageManager;
 
 
     public CollectionManager() {
         this.collection = new ArrayDeque<>();
+        this.vehicleStorageManager = new VehicleManager();
         collectionInitialization = LocalDateTime.now();
     }
 
@@ -84,13 +89,17 @@ public class CollectionManager {
                 return new ExceptionStatus("Объект типа Vehicle не соответствует требованиям. " +
                         "Проверьте корректность введеных значений и попробуйте еще раз.");
             } else {
-                if ((vehicle.getId() == 0)) {
-                    Vehicle.updateUniqueId(collection);
-                    vehicle.setId(Vehicle.uniqueId);
+                try {
+                    Integer vehicle_id = vehicleStorageManager.addVehicle(vehicle);
+                    if (vehicle_id == null) {
+                        return new ExceptionStatus("Ошибка при добавлении элемента в базу данных");
+                    }
+                    vehicle.setId(vehicle_id);
+                    collection.add(vehicle);
+                    return new OKStatus();
+                } catch (Exception e) {
+                    return new ExceptionStatus("Ошибка при добавлении элемента в базу данных: " + e);
                 }
-
-                collection.add(vehicle);
-                return new OKStatus();
             }
         }
     }
@@ -109,26 +118,35 @@ public class CollectionManager {
      * @param index индекс, по которому ищется элемент
      * @param newVehicle элемент который нужно добавить
      */
-    public void updateById(int index, Vehicle newVehicle){
+    public void updateById(int index, Vehicle newVehicle) {
         Vehicle lastVehicle = this.getById(index);
+        if (lastVehicle.getOwnerUserId() != newVehicle.getOwnerUserId()) {
+            throw new NoAccessException("Нельзя изменить элемент коллекции, которым владеет другой пользователь");
+        }
+        vehicleStorageManager.updateVehicle(lastVehicle.getId(), newVehicle);
         collection.remove(lastVehicle);
-        newVehicle.setId(index);
-        this.add(newVehicle);
+        collection.add(newVehicle);
     }
 
     /**
      * Удаляет элемент, id которого равен данному
      * @param index индекс, по которому ищется элемент
      */
-    public void removeById(int index) {
+    public void removeById(int index, User owner) throws NoAccessException {
+        var vehicle = vehicleStorageManager.getVehicle(index);
+        if (vehicle.getOwnerUserId() != owner.getId()) {
+            throw new NoAccessException("Нельзя удалить элемент коллекции, которым владеет другой пользователь");
+        }
         collection.remove(getById(index));
+        vehicleStorageManager.deleteVehicle(vehicle.getId());
     }
 
     /**
      * Очищает коллекцию
      */
-    public void clear() {
-        collection.clear();
+    public void clear(User owner) {
+        collection.removeIf(vehicle -> vehicle.getOwnerUserId() == owner.getId());
+        vehicleStorageManager.deleteAllUserVehicles(owner.getId());
     }
 
 }

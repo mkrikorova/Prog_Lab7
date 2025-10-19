@@ -17,6 +17,7 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
     private int numberOfWheels; //Значение поля должно быть больше 0
     private Double fuelConsumption; //Поле не может быть null, Значение поля должно быть больше 0
     private FuelType fuelType; //Поле может быть null
+    private int ownerUserId;
 
 
     /**
@@ -27,9 +28,10 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
      * @param numberOfWheels количество колес
      * @param fuelConsumption потребление топлива
      * @param nameOfFuelType имя одной из констант типа топлива
+     * @param ownerUserId id пользователя-владельца
      */
     public Vehicle(String name, Coordinates coordinates,
-                   double enginePower, int numberOfWheels, Double fuelConsumption, String nameOfFuelType) {
+                   double enginePower, int numberOfWheels, Double fuelConsumption, String nameOfFuelType, int ownerUserId) {
         this.id = uniqueId++;
         this.name = name;
         this.coordinates = coordinates;
@@ -41,6 +43,7 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
             this.fuelType = null;
         else
             this.fuelType = FuelType.getFuelType(nameOfFuelType.toLowerCase());
+        this.ownerUserId = ownerUserId;
     }
 
     /**
@@ -53,9 +56,10 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
      * @param numberOfWheels количество колес
      * @param fuelConsumption потребление топлива
      * @param nameOfFuelType имя одной из констант типа топлива
+     * @param ownerUserId id пользователя-владельца
      */
     public Vehicle(int id, String name, Coordinates coordinates, LocalDateTime creationDate,
-                          double enginePower, int numberOfWheels, Double fuelConsumption, String nameOfFuelType) {
+                          double enginePower, int numberOfWheels, Double fuelConsumption, String nameOfFuelType, int ownerUserId) {
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
@@ -67,6 +71,7 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
             this.fuelType = null;
         else
             this.fuelType = FuelType.getFuelType(nameOfFuelType.toLowerCase());
+        this.ownerUserId = ownerUserId;
     }
 
     /**
@@ -211,6 +216,22 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
     }
 
     /**
+     * Возвращает id пользователя-владельца объекта
+     * @return id пользователя-владельца
+     */
+    public int getOwnerUserId() {
+        return this.ownerUserId;
+    }
+
+    /**
+     * Устанавливает id пользователя-владельца для объекта
+     * @param ownerUserId новый id пользователя-владельца
+     */
+    public void setOwnerUserId(int ownerUserId) {
+        this.ownerUserId = ownerUserId;
+    }
+
+    /**
      * Возвращает объект типа Vehicle в виде строки
      * @return описание объекта
      */
@@ -227,6 +248,7 @@ public class Vehicle implements Validator, Comparable<Vehicle>, Serializable {
                 ", numberOfWheels = " + numberOfWheels +
                 ", fuelConsumption = " + fuelConsumption +
                 ", fuelType = " + fuelType +
+                ", ownerUserId = " + ownerUserId +
                 '}';
     }
 

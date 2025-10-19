@@ -1,6 +1,7 @@
 package commands;
 
 import exceptions.ExitProgramException;
+import models.User;
 import statuses.Status;
 import vehicleClasses.Vehicle;
 
@@ -10,7 +11,7 @@ public abstract class Command implements Executable {
     /**
      * Абстрактный метод для выполнения тела команды
      */
-    public Status execute(String commandParts, Vehicle vehicle) throws ExitProgramException {
+    public Status execute(String commandParts, Vehicle vehicle, User user) throws ExitProgramException {
         return null;
     }
 

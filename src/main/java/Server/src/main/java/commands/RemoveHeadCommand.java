@@ -1,6 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -20,13 +21,15 @@ public class RemoveHeadCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
-        Vehicle minElement = collectionManager.getCollection().stream().filter(Objects::nonNull).
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
+        Vehicle minElement = collectionManager.getCollection().stream().
+                filter(Objects::nonNull).
+                filter(checked_vehicle -> checked_vehicle.getOwnerUserId() == user.getId()).
                 min(Vehicle::compareTo).orElse(null);
         if (minElement == null) {
-            return new ExceptionStatus("Коллекция пуста");
+            return new ExceptionStatus("Нет ни одного объекта, которым владеет пользователь с id " + user.getId());
         } else {
-            collectionManager.removeById(minElement.getId());
+            collectionManager.removeById(minElement.getId(), user);
             return new OKResponseStatus(minElement.toString());
         }
     }

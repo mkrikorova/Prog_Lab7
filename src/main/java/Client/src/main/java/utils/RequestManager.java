@@ -25,7 +25,7 @@ public class RequestManager {
      * @throws ExitProgramException исключение для выхода из программы
      * @throws NoSuchElementException исключение если не существует такого элемента
      */
-    public static Request lineToRequest(String line, boolean isInFile) throws ExitProgramException, NoSuchElementException {
+    public static Request lineToRequest(String line, boolean isInFile, int user_id) throws ExitProgramException, NoSuchElementException {
         if (line.isEmpty()) {
             return null;
         }
@@ -39,7 +39,7 @@ public class RequestManager {
                 Validator validator = Client.validators.get(commandName);
 
                 if (validator.getNeedParse()) {
-                    return validator.validate(commandName, null, isInFile);
+                    return validator.validate(commandName, null, isInFile, user_id);
                 }
                 return validator.validate(commandName, null);
             } catch (UnknownCommandException e) {
@@ -48,14 +48,14 @@ public class RequestManager {
         } else {
             try {
                 if (commandName.equals("execute_script")) {
-                    handleExecuteScript(wordsOfLine[1]);
+                    handleExecuteScript(wordsOfLine[1], user_id);
                     return null;
                 } else {
                     Validator.checkIfValidCommand(commandName, Client.validators.keySet());
                     Validator validator = Client.validators.get(commandName);
 
                     if (validator.getNeedParse()) {
-                        return validator.validate(commandName, wordsOfLine[1], isInFile);
+                        return validator.validate(commandName, wordsOfLine[1], isInFile, user_id);
                     }
                     return validator.validate(commandName, wordsOfLine[1]);
                 }
@@ -72,11 +72,11 @@ public class RequestManager {
      * @param request запрос
      * @throws ExitProgramException исключение для выхода из программы
      */
-    public static void handleRequest(SocketChannel socketChannel, Request request) throws IOException, ExitProgramException {
+    public static void handleRequest(SocketChannel socketChannel, Request request, int userId) throws IOException, ExitProgramException {
         if (request == null)
             return;
         if (request.getCommand().equals("execute_script")) {
-            handleExecuteScript(request.getArgs());
+            handleExecuteScript(request.getArgs(), userId);
         } else {
             makeRequest(socketChannel, request);
         }
@@ -87,8 +87,8 @@ public class RequestManager {
      * @param filename имя скрипта
      * @throws ExitProgramException исключение для выхода из программы
      */
-    public static void handleExecuteScript(String filename) throws ExitProgramException {
-        ExecuteScriptCommand.execute(filename);
+    public static void handleExecuteScript(String filename, int userId) throws ExitProgramException {
+        ExecuteScriptCommand.execute(filename, userId);
     }
 
     /**
@@ -97,20 +97,26 @@ public class RequestManager {
      * @param request запрос
      */
     public static void makeRequest(SocketChannel socketChannel, Request request) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream toServer = new ObjectOutputStream(baos);
-        toServer.writeObject(request);
-        socketChannel.write(ByteBuffer.wrap(baos.toByteArray()));
+        ObjectOutputStream oos = new ObjectOutputStream(socketChannel.socket().getOutputStream());
+        oos.writeObject(request); //отправили запрос на сервер
+        ObjectInputStream ois = new ObjectInputStream(socketChannel.socket().getInputStream());
+        Status status = null;
+        try {
+            status = (Status) ois.readObject();
+        } catch (ClassNotFoundException ignored) {}
 
-
-        ByteBuffer fromServer = ByteBuffer.allocate(4096);
-        socketChannel.read(fromServer);
-        Status status = SerializationUtils.deserialize(fromServer.array());
         if (status.getResult().equals("Exception")) {
             ColorOutput.printlnRed(status.getResponse());
         } else {
             System.out.println(status.getResponse());
         }
+    }
+
+    public static Status getResponseStatus(SocketChannel socketChannel, Request request) throws IOException, ClassNotFoundException {
+        ObjectOutputStream oos = new ObjectOutputStream(socketChannel.socket().getOutputStream());
+        oos.writeObject(request); //отправили запрос на сервер
+        ObjectInputStream ois = new ObjectInputStream(socketChannel.socket().getInputStream());
+        return (Status) ois.readObject();
     }
 
 

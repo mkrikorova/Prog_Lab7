@@ -14,8 +14,6 @@ public class ServerConsoleInputManager {
                 String arg = reader.readLine();
                 if (arg.equals("exit")) {
                     throw new ExitProgramException();
-                } else if (arg.equals("save")) {
-                    FileManager.saveObjects();
                 } else {
                     ColorOutput.printlnRed("Такой команды не существует.");
                 }

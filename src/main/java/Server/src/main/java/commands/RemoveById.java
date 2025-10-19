@@ -1,6 +1,8 @@
 package commands;
 
+import exceptions.NoAccessException;
 import managers.CollectionManager;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -20,10 +22,14 @@ public class RemoveById extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user)  {
         int index = Integer.parseInt(commandParts);
         if (collectionManager.checkExistence(index)) {
-            collectionManager.removeById(index);
+            try {
+                collectionManager.removeById(index, user);
+            } catch (NoAccessException e) {
+                return new ExceptionStatus(e.toString());
+            }
             return new OKResponseStatus("Элемент с заданным индексом найден и удален");
         } else {
             return new ExceptionStatus("Такого индекса не существует");

@@ -17,13 +17,13 @@ public class ReadValidator extends Validator {
     private final static int maxCountOfAttempts = 50000;
 
     @Override
-    public Request validate(String command, String args, boolean parse) throws ExitProgramException {
+    public Request validate(String command, String args, boolean parse, int user_id) throws ExitProgramException {
         try {
             Vehicle vehicle = null;
             if (!parse)
-                vehicle = readVehicle();
+                vehicle = readVehicle(user_id);
             else {
-                vehicle = parseVehicle(ExecuteScriptCommand.readAllArguments());
+                vehicle = parseVehicle(ExecuteScriptCommand.readAllArguments(), user_id);
             }
 
             return super.validate(command, args, vehicle);
@@ -40,7 +40,7 @@ public class ReadValidator extends Validator {
      * @throws WrongArgumentsException  исключение выбрасывающееся при неверном типе аргументов
      * @throws ExitProgramException исключение для выхода из программы
      */
-    public Vehicle readVehicle() throws WrongArgumentsException, ExitProgramException {
+    public Vehicle readVehicle(int user_id) throws WrongArgumentsException, ExitProgramException {
         Scanner scanner = new Scanner(System.in);
         String name = null;
         int x = 0;
@@ -62,7 +62,7 @@ public class ReadValidator extends Validator {
             nameOfFuelType = askFuelType(scanner, "");
 
             newVehicle = new Vehicle(name, coordinates, enginePower, numberOfWheels,
-                    fuelConsumption, nameOfFuelType);
+                    fuelConsumption, nameOfFuelType, user_id);
         } catch (ToMuchAttemptsException t) {
             ColorOutput.printlnRed("Ты совсем долбаёб? Блять так сложно что ли прочитать что от тебя просят. " +
                     "Нет конечно интереснее долбиться до последнего. Мало ли сработает?))\n" +
@@ -82,7 +82,7 @@ public class ReadValidator extends Validator {
      * @return объект Vehicle с полями, прошедшими валидацию
      * @throws WrongArgumentsException исключение выбрасывающееся при неверном типе аргументов
      */
-    public Vehicle parseVehicle(ArrayList<String> args) throws WrongArgumentsException {
+    public Vehicle parseVehicle(ArrayList<String> args, int user_id) throws WrongArgumentsException {
         String name = null;
         int x = 0;
         double y = 0;
@@ -110,7 +110,7 @@ public class ReadValidator extends Validator {
                 if (args.size() == 7) {
                     nameOfFuelType = askFuelType(null, args.get(6));
                 }
-                newVehicle = new Vehicle(name, coordinates, enginePower, numberOfWheels, fuelConsumption, nameOfFuelType);
+                newVehicle = new Vehicle(name, coordinates, enginePower, numberOfWheels, fuelConsumption, nameOfFuelType, user_id);
             } catch (ToMuchAttemptsException t) {
                 ColorOutput.printlnRed("Ты совсем долбаёб? Блять так сложно что ли прочитать что от тебя просят. " +
                         "Нет конечно интереснее долбиться до последнего. Мало ли сработает?))\n" +

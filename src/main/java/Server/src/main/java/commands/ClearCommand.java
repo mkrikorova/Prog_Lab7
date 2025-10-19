@@ -2,6 +2,7 @@ package commands;
 
 
 import managers.*;
+import models.User;
 import statuses.OKStatus;
 import statuses.Status;
 import vehicleClasses.Vehicle;
@@ -36,9 +37,8 @@ public class ClearCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
-        collectionManager.clear();
-        Vehicle.updateUniqueId(collectionManager.getCollection());
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
+        collectionManager.clear(user);
         return new OKStatus();
     }
 }

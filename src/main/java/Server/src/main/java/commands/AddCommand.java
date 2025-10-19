@@ -2,6 +2,7 @@ package commands;
 
 
 import managers.CollectionManager;
+import models.User;
 import statuses.Status;
 import vehicleClasses.Vehicle;
 
@@ -18,7 +19,7 @@ public class AddCommand extends Command {
      * @param vehicle объект который нужно добавить
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         return collectionManager.add(vehicle);
     }
 

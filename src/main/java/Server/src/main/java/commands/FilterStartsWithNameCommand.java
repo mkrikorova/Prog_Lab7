@@ -1,6 +1,7 @@
 package commands;
 
 import managers.*;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -21,7 +22,7 @@ public class FilterStartsWithNameCommand extends Command {
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         Collection <Vehicle> collection = collectionManager.getCollection();
         if (collection == null) {
             return new ExceptionStatus("Коллекция пуста");

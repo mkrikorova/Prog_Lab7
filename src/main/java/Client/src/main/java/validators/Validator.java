@@ -38,7 +38,7 @@ public abstract class Validator implements IValidator {
      * @return запрос
      * @throws ExitProgramException исключение для выхода из программы
      */
-    public Request validate(String command, String args, boolean parse) throws ExitProgramException {
+    public Request validate(String command, String args, boolean parse, int user_id) throws ExitProgramException {
         return new Request(command, args, null);
     }
 

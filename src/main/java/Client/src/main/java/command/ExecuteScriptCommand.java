@@ -18,7 +18,7 @@ public class ExecuteScriptCommand {
      * Исполняет команду execute_script
      * @param filePath путь до файла
      */
-    public static void execute(String filePath) throws ExitProgramException {
+    public static void execute(String filePath, int userId) throws ExitProgramException {
         try {
             File ioFile = new File(filePath);
             if (!ioFile.canWrite() || ioFile.isDirectory() || !ioFile.isFile())
@@ -32,14 +32,14 @@ public class ExecuteScriptCommand {
             String line = reader.readLine(); //начинаем считывать файл
             while (line != null) {
                 ColorOutput.printlnCyan("\nИсполнение команды " + line + " : ");
-                Request request = RequestManager.lineToRequest(line, true);
-                RequestManager.handleRequest(Client.getSocketChannel(), request);
+                Request request = RequestManager.lineToRequest(line, true, userId);
+                RequestManager.handleRequest(Client.getSocketChannel(), request, userId);
                 while (lastReadFromFile != null) {
                     String s = new String(lastReadFromFile);
                     lastReadFromFile = null;
                     ColorOutput.printlnCyan("\nИсполнение команды " + s + " : ");
-                    request = RequestManager.lineToRequest(s, true);
-                    RequestManager.handleRequest(Client.getSocketChannel(), request);
+                    request = RequestManager.lineToRequest(s, true, userId);
+                    RequestManager.handleRequest(Client.getSocketChannel(), request, userId);
                 }
                 line = reader.readLine();
 

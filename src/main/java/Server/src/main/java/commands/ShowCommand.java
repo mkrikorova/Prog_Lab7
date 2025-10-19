@@ -2,6 +2,7 @@ package commands;
 
 
 import managers.CollectionManager;
+import models.User;
 import statuses.OKResponseStatus;
 import statuses.Status;
 import vehicleClasses.Vehicle;
@@ -19,7 +20,7 @@ public class ShowCommand extends Command {
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         return new OKResponseStatus(collectionManager.show());
     }
 

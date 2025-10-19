@@ -15,6 +15,7 @@ public enum FuelType implements Serializable {
     PLASMA;
 
     private static final HashMap<String, FuelType> fuelTypes = new HashMap<>();
+    private static final HashMap<FuelType, String> fuelTypesNames = new HashMap<>();
 
     /**
      * Устанавливает константы так, чтобы было удобно вводить
@@ -36,6 +37,25 @@ public enum FuelType implements Serializable {
      * @return константу
      */
     public static FuelType getFuelType(String name) {
+
+        if (fuelTypes.isEmpty()) {
+            setFuelTypes();
+        }
         return fuelTypes.get(name);
+    }
+
+    /**
+     * Возвращает строковое представление константы
+     * @param fuelType константа
+     * @return строковое представление
+     */
+    public static String getFuelTypeName(FuelType fuelType) {
+        if (fuelTypesNames.isEmpty()) {
+            fuelTypesNames.put(FuelType.ELECTRICITY, "ELECTRICITY");
+            fuelTypesNames.put(FuelType.DIESEL, "DIESEL");
+            fuelTypesNames.put(FuelType.ALCOHOL, "ALCOHOL");
+            fuelTypesNames.put(FuelType.PLASMA, "PLASMA");
+        }
+        return fuelTypesNames.get(fuelType);
     }
 }

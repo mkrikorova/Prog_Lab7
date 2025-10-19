@@ -1,6 +1,8 @@
 package commands;
 
+import exceptions.NoAccessException;
 import managers.CollectionManager;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -23,7 +25,7 @@ public class RemoveAnyByFuelTypeCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         FuelType fuelTypeToRemove = FuelType.getFuelType(commandParts.toLowerCase());
         if (fuelTypeToRemove == null) {
             return new ExceptionStatus("Элемент с заданным FuelType не найден");
@@ -33,10 +35,15 @@ public class RemoveAnyByFuelTypeCommand extends Command{
                 return new ExceptionStatus("Коллекция пуста");
             } else {
                 Optional<Vehicle> vehicleFound = collection.stream().filter(Objects::nonNull).
-                        filter(checkVehicle -> checkVehicle.getFuelType() == fuelTypeToRemove).findFirst();
+                        filter(checkVehicle -> checkVehicle.getFuelType() == fuelTypeToRemove &&
+                                checkVehicle.getOwnerUserId() == user.getId()).findFirst();
                 if (vehicleFound.isPresent()) {
                     Vehicle vehicleToRemove =  vehicleFound.get();
-                    collectionManager.removeById(vehicleToRemove.getId());
+                    try {
+                        collectionManager.removeById(vehicleToRemove.getId(), user);
+                    } catch (NoAccessException e) {
+                        return new ExceptionStatus(e.toString());
+                    }
                     return new OKResponseStatus("Элемент с заданным FuelType найден и удален");
                 } else  {
                     return new OKResponseStatus("Элемент с заданным FuelType не найден");

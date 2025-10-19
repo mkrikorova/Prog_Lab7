@@ -1,6 +1,8 @@
 package commands;
 
+import exceptions.NoAccessException;
 import managers.CollectionManager;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -17,11 +19,15 @@ public class UpdateCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle vehicle) {
+    public Status execute(String commandParts, Vehicle vehicle, User user) {
         int indexOfElement = Integer.parseInt(commandParts);
 
         if (collectionManager.checkExistence(indexOfElement)) {
-            collectionManager.updateById(indexOfElement, vehicle);
+            try {
+                collectionManager.updateById(indexOfElement, vehicle);
+            } catch (NoAccessException e) {
+                return new ExceptionStatus(e.toString());
+            }
             return new OKResponseStatus("Элемент с данным индексом был обновлен");
         } else {
             return new ExceptionStatus("Такого индекса не существует");

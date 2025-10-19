@@ -1,6 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
+import models.User;
 import statuses.ExceptionStatus;
 import statuses.OKResponseStatus;
 import statuses.Status;
@@ -21,15 +22,17 @@ public class RemoveLowerCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String commandParts, Vehicle compareVehicle) {
+    public Status execute(String commandParts, Vehicle compareVehicle, User user) {
         Collection <Vehicle> collection = collectionManager.getCollection();
         if (collection == null) {
             return new ExceptionStatus("Коллекция пуста");
         } else {
             Collection<Vehicle> toRemove = collection.stream().filter(Objects::nonNull)
-                    .filter(vehicle -> vehicle.compareTo(compareVehicle) < 0).toList();
+                    .filter(vehicle -> vehicle.compareTo(compareVehicle) < 0)
+                    .filter(vehicle -> vehicle.getOwnerUserId() == user.getId())
+                    .toList();
             for (Vehicle v: toRemove) {
-                collectionManager.removeById(v.getId());
+                collectionManager.removeById(v.getId(), user);
             }
             return new OKResponseStatus("Элементы, меньшие, чем заданный, найдены и удалены");
         }

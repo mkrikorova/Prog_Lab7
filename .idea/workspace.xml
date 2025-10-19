@@ -3,6 +3,7 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="Client:jar" />
+      <artifact name="Common:jar" />
       <artifact name="Server:jar" />
     </artifacts-to-build>
   </component>
@@ -11,20 +12,91 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="157a1148-51d0-448a-b6fa-262999fbca28" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions/NoAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/LoginCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RegisterUserCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/database/postgres/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/database/postgres/DatabaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/database/postgres/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/database/postgres/VehicleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/tasks/ExecuteRequestTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/tasks/ReadRequestTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/tasks/WriteResponseTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Client_jar/Client.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Server_jar/Server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/command/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/command/ExecuteScriptCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/RequestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/RequestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/AddAndRemoveLowerValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/AddAndRemoveLowerValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ReadValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/ReadValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/UpdateByIdValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/UpdateByIdValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/src/main/java/validators/Validator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/command/ExecuteScriptCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/command/ExecuteScriptCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/RequestManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/utils/RequestManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/AddAndRemoveLowerValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/AddAndRemoveLowerValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/ReadValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/ReadValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/UpdateByIdValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/UpdateByIdValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/target/classes/validators/Validator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exchange/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/exchange/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/FuelType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/FuelType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/target/classes/exchange/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/target/classes/exchange/Request.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/target/classes/utils/ColorOutput.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/target/classes/utils/ColorOutput.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/Coordinates.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/FuelType.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/FuelType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Common/target/classes/vehicleClasses/Vehicle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AddIfMinCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AverageOfNumberOfWheelsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/AverageOfNumberOfWheelsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/FilterStartsWithNameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/FilterStartsWithNameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/InfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveAnyByFuelTypeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveAnyByFuelTypeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveById.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveById.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveHeadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveHeadCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveLowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/RemoveLowerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/ShowCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/UpdateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/RequestManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ServerConsoleInputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/ServerConsoleInputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AddCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AddCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AddIfMinCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AddIfMinCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AverageOfNumberOfWheelsCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/AverageOfNumberOfWheelsCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/ClearCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/ClearCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/FilterStartsWithNameCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/FilterStartsWithNameCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/HelpCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/InfoCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/InfoCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveAnyByFuelTypeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveAnyByFuelTypeCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveById.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveById.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveHeadCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveHeadCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveLowerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/RemoveLowerCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/ShowCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/ShowCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/UpdateCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/commands/UpdateCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/CollectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/ConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/FileManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/RequestManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/ServerConsoleInputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/target/classes/managers/ServerConsoleInputManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +108,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -60,27 +133,31 @@
   &quot;keyToString&quot;: {
     &quot;Application.Client.executor&quot;: &quot;Run&quot;,
     &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dmitriy/Documents/code/java/Lab6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/m.krikorova/IdeaProjects/Lab7&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Server/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/files" />
       <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java/exceptions" />
-      <recent name="$PROJECT_DIR$/src/main/java/Common/src/main/java/vehicleClasses" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -96,7 +173,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <envs>
         <env name="PORT" value="8000" />
@@ -121,8 +198,11 @@
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application">
       <envs>
-        <env name="PORT" value="8000" />
         <env name="file_path" value="$PROJECT_DIR$/src/main/resources/fillCollection.xml" />
+        <env name="PORT" value="8000" />
+        <env name="POSTGRES_DB_URL" value="jdbc:postgresql://localhost:5432/studs" />
+        <env name="POSTGRES_PASSWORD" value="CfkanwUEFLLiJvXM" />
+        <env name="POSTGRES_USER" value="s408904" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Server" />
@@ -175,18 +255,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/Server.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/commands/HelpCommand.java</url>
-          <line>31</line>
+          <line>34</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Server/src/main/java/managers/CommandManager.java</url>
-          <line>50</line>
+          <line>59</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -214,6 +289,16 @@
           <line>85</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/Client.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/src/main/java/utils/Client.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="exceptions.ExitProgramException" package="exceptions" />
           <option name="timeStamp" value="5" />
@@ -222,8 +307,18 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="26" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="61" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.io.IOException" memberName="stackTrace" />
+        <PinnedItemInfo parentTag="java.io.IOException" memberName="backtrace" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="uniqueId" language="JAVA" />

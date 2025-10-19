@@ -2,6 +2,7 @@ package commands;
 
 
 import managers.*;
+import models.User;
 import statuses.OKResponseStatus;
 import statuses.Status;
 import vehicleClasses.Vehicle;
@@ -61,7 +62,7 @@ public class AddIfMinCommand extends Command{
      * Исполняет команду
      */
     @Override
-    public Status execute(String args, Vehicle newVehicle) {
+    public Status execute(String args, Vehicle newVehicle, User user) {
         if (checkIfMin(newVehicle)) {
             return collectionManager.add(newVehicle);
         }
